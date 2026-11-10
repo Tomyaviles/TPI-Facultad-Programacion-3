@@ -1,0 +1,7 @@
+[
+  { "id": 1, "nombre": "Hamburguesas", "descripcion": "Hamburguesas artesanales con carne premium", "eliminado": false },
+  { "id": 2, "nombre": "Pizzas", "descripcion": "Pizzas al horno de barro", "eliminado":false },
+  { "id": 3, "nombre": "Empanadas", "descripcion": "Empanadas caseras horneadas", "eliminado":false},
+  { "id": 4, "nombre": "Bebidas", "descripcion": "Bebidas frías y calientes", "eliminado":false},
+  { "id": 5, "nombre": "Papas Fritas", "descripcion": "Acompañamientos crujientes","eliminado":false }
+]

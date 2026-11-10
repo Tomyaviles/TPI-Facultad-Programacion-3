@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Administración - Food Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="admin_home.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-pizza-slice"></i> Food Store
+        </div>
+
+        <div class="section-label">Administración</div>
+        <div class="panel-label">Panel de control</div>
+
+        <a href="#" class="nav-link active">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="#" class="nav-link" id="categoria_link">
+            <i class="fas fa-folder"></i> Categorías
+        </a>
+        <a href="#" class="nav-link" id="producto_link">
+            <i class="fas fa-box"></i> Productos
+        </a>
+        <a href="#" class="nav-link" id="pedido_link">
+            <i class="fas fa-shopping-cart"></i> Pedidos
+        </a>
+
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="header-brand">
+                <i class="fas fa-pizza-slice"></i> Food Store
+            </div>
+            <div class="header-nav">
+                <span class="header-item">Panel Admin</span>
+                <span class="header-item">Administrador</span>
+                <button class="btn-cerrar" id="logout">Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <div class="dashboard-container">
+            <div class="dashboard-header">Panel de Administración</div>
+
+            <div class="cards-grid">
+                <div class="stat-card card-categorias">
+                    <div class="card-info">
+                        <i class="fas fa-folder card-icon"></i>
+                        <span class="card-title">Categorías</span>
+                    </div>
+                    <div class="card-count">0</div>
+                    <button class="btn-gestionar" id="categoria_btn">Gestionar</button>
+                </div>
+
+                <div class="stat-card card-productos">
+                    <div class="card-info">
+                        <i class="fas fa-box card-icon"></i>
+                        <span class="card-title">Productos</span>
+                    </div>
+                    <div class="card-count">0</div>
+                    <button class="btn-gestionar" id="producto_btn">Gestionar</button>
+                </div>
+
+                <div class="stat-card card-pedidos">
+                    <div class="card-info">
+                        <i class="fas fa-shopping-cart card-icon"></i>
+                        <span class="card-title">Pedidos</span>
+                    </div>
+                    <div class="card-count">0</div>
+                    <button class="btn-gestionar" id="pedido_btn">Gestionar</button>
+                </div>
+
+                <div class="stat-card card-disponibles">
+                    <div class="card-info">
+                        <i class="fas fa-check-circle card-icon"></i>
+                        <span class="card-title">Disponibles</span>
+                    </div>
+                    <div class="card-count">0</div>
+                    <div class="products-active-label">Productos activos</div>
+                </div>
+            </div>
+
+            <div class="resumen-card">
+                <div class="resumen-header">
+                    <i class="fas fa-chart-bar resumen-icon"></i>
+                    <span>Resumen Rápido</span>
+                </div>
+                <div class="resumen-content">
+                    Cargando estadísticas...
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script type="module" src="admin_home.ts"></script>
+
+</body>
+</html>

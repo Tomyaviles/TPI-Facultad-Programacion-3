@@ -1,0 +1,161 @@
+/* ==========================================
+   RESET Y ESTILOS GENERALES
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    /* Degradado diagonal naranja idéntico al de la imagen */
+    background: linear-gradient(135deg, #ff844c 0%, #f15a24 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Ocultamos el header y footer originales para que la tarjeta 
+   sea el centro de atención, tal como en la captura */
+header, footer {
+    display: none; 
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL (TARJETA BLANCA)
+   ========================================== */
+.container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Título de la marca simulado dentro de la tarjeta */
+.container::before {
+    content: "Food Store";
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #f15a24; /* Color naranja de la marca */
+    margin-bottom: -10px;
+}
+
+/* Subtítulo simulado */
+.form::before {
+    content: "Ingresar";
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 24px;
+}
+
+/* ==========================================
+   ESTILOS DEL FORMULARIO E INPUTS
+   ========================================== */
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form_div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+/* Estilo para los Labels */
+.form_label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2d3748;
+    display: block;
+    margin-bottom: 4px;
+}
+
+/* Inputs de texto, password y select */
+.form_input, select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #334155;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+}
+
+.form_input::placeholder {
+    color: #94a3b8;
+}
+
+/* Efecto Focus en los inputs */
+.form_input:focus, select:focus {
+    border-color: #f15a24;
+    box-shadow: 0 0 0 3px rgba(241, 90, 36, 0.15);
+}
+
+/* Ajuste específico para
+select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%23475569'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 36px;
+}
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+/* Botón principal (Ingresar) */
+.form_button {
+    background-color: #ff6433;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    /*align-self: flex-start; /* Alineado a la izquierda como en la imagen */
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+}
+
+.form_button:hover {
+    background-color: #e04f22;
+}
+
+/* Botón secundario (¿No tienes cuenta?...) */
+.register_button {
+    background: none;
+    border: none;
+    color: #2d3748;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.register_button:hover {
+    color: #f15a24;
+    text-decoration: underline;
+}

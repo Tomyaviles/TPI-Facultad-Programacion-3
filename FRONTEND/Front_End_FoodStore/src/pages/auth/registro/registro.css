@@ -1,0 +1,140 @@
+/* ==========================================
+   RESET Y ESTILOS GENERALES
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    /* Degradado idéntico al de la pantalla de login */
+    background: linear-gradient(135deg, #ff844c 0%, #f15a24 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Ocultamos elementos innecesarios para el foco visual en la tarjeta */
+.header, footer {
+    display: none; 
+}
+
+/* ==========================================
+   CONTENEDOR PRINCIPAL (TARJETA BLANCA)
+   ========================================== */
+.container {
+    background-color: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Título de la marca "Food Store" inyectado con CSS */
+.container::before {
+    content: "Food Store";
+    display: block;
+    text-align: center;
+    font-size: 28px;
+    font-weight: 700;
+    color: #f15a24;
+    margin-bottom: -10px;
+}
+
+/* Subtítulo "Registro" inyectado con CSS */
+.container_form::before {
+    content: "Registro";
+    display: block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 24px;
+}
+
+/* ==========================================
+   ESTILOS DEL FORMULARIO E INPUTS
+   ========================================== */
+.container_form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px; /* Espacio uniforme entre labels e inputs */
+}
+
+/* Estilo para las etiquetas de texto (Email, Password) */
+.container_form label {
+    font-size: 14px;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: -4px; /* Acerca la etiqueta al input */
+}
+
+/* Inputs de texto y password */
+.form_input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #334155;
+    background-color: #ffffff;
+    transition: all 0.2s ease-in-out;
+    outline: none;
+    margin-bottom: 12px; /* Separa cada bloque de input */
+}
+
+/* Efecto Focus en los inputs */
+.form_input:focus {
+    border-color: #f15a24;
+    box-shadow: 0 0 0 3px rgba(241, 90, 36, 0.15);
+}
+
+/* ==========================================
+   BOTONES
+   ========================================== */
+/* Botón principal (Registrar) */
+#btn_register {
+    background-color: #ff6433;
+    color: #ffffff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
+}
+
+#btn_register:hover {
+    background-color: #e04f22;
+}
+
+/* Botón secundario (Volver al Login) */
+#btn_back_login {
+    background: none;
+    border: none;
+    color: #2d3748;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 10px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+#btn_back_login:hover {
+    color: #f15a24;
+    text-decoration: underline;
+}

@@ -1,0 +1,397 @@
+/* ==========================================
+   RESET Y VARIABLES DE DISEÑO
+   ========================================== */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+:root {
+    --bg-main: #f3f4f6;          /* Gris muy claro de fondo */
+    --bg-card: #ffffff;          /* Blanco */
+    --primary: #f15a24;          /* Naranja de la marca */
+    --primary-light: #fff0ea;    /* Naranja muy claro para fondos de selección */
+    --text-dark: #2d3748;        /* Gris oscuro para títulos */
+    --text-muted: #718096;       /* Gris medio para textos secundarios */
+    --border-color: #e2e8f0;     /* Gris suave para líneas divisorias */
+    --success: #10b981;          /* Verde para estados "Disponible" */
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-dark);
+    min-height: 100vh;
+    display: grid;
+    /* Grid de 3 filas (header, contenido principal, footer) 
+       y 2 columnas para el cuerpo (sidebar y main) */
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 240px 1fr;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+}
+
+/* ==========================================
+   HEADER (BARRA DE NAVEGACIÓN SUPERIOR)
+   ========================================== */
+.header {
+    grid-area: header;
+    background-color: var(--bg-card);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 40px;
+    border-bottom: 1px solid var(--border-color);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+}
+
+.header_title {
+    color: var(--primary);
+    font-size: 22px;
+    font-weight: 700;
+}
+
+.header_nav {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.header_link {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 14px;
+    transition: color 0.2s;
+}
+
+.header_link:hover {
+    color: var(--primary);
+}
+
+/* Botón destacado / Logout en gris */
+#logout {
+    background-color: #e2e8f0;
+    color: #4a5568;
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-weight: 600;
+    transition: background-color 0.2s;
+}
+
+#logout:hover {
+    background-color: #cbd5e1;
+}
+
+/* ==========================================
+   SIDEBAR (BARRA LATERAL DE CATEGORÍAS)
+   ========================================== */
+.sidebar {
+    grid-area: sidebar;
+    background-color: var(--bg-card);
+    border-right: 1px solid var(--border-color);
+    padding: 30px 20px;
+}
+
+.sidebar_title {
+    font-size: 15px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.sidebar_list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+/* Estilos para los <li> cargados por JS en .sidebar_list */
+.sidebar_list li {
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.sidebar_list li:hover,
+.sidebar_list li.active {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+/* ==========================================
+   MAIN CONTAINER (ZONA CENTRAL)
+   ========================================== */
+.container {
+    grid-area: main;
+    padding: 40px;
+    overflow-y: auto;
+}
+
+/* Caja contenedora de búsqueda */
+.container_form {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+
+/* Grupo del buscador (Input + Botón) alineados horizontalmente */
+#form_buscar {
+    display: flex;
+    flex-direction: row;      /* Fuerza a que los elementos vayan en fila */
+    align-items: center;      /* Alinea verticalmente al centro */
+    flex-wrap: wrap;          /* Permite que baje si la pantalla es muy chica */
+    gap: 12px;
+    width: 100%;
+}
+
+.container_input {
+    flex: 1;
+    min-width: 200px;
+    padding: 12px 18px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 14px;
+    outline: none;
+    background-color: var(--bg-card);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.02);
+    transition: border-color 0.2s;
+}
+
+.container_input:focus {
+    border-color: var(--primary);
+}
+
+.container_button {
+    background-color: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 24px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.container_button:hover {
+    background-color: #e04f22;
+}
+
+/* Título de la sección de productos */
+.container_subtitle {
+    width: 100%;
+    font-size: 24px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-top: 10px;
+}
+
+/* ==========================================
+   GRILLA DE PRODUCTOS
+   ========================================== */
+.products {
+   display: grid;
+    /* Crea columnas automáticas de mínimo 250px que se acomodan en filas */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 24px;
+    width: 100%;
+}
+
+/* Tarjeta de producto individual (Clases recomendadas para usar en tu JS) */
+.product-card {
+    background-color: var(--bg-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -1px rgba(0,0,0,0.03);
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    flex-grow: 1;
+}
+
+.product-category {
+    font-size: 11px;
+    text-transform: uppercase;
+    font-weight: 600;
+    color: var(--text-muted);
+}
+
+.product-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark);
+}
+
+.product-desc {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: auto;
+    padding-top: 15px;
+}
+
+.product-price {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.product-status {
+    background-color: #d1fae5;
+    color: var(--success);
+    font-size: 11px;
+    font-weight: 700;
+    padding: 4px 8px;
+    border-radius: 6px;
+}
+
+/* ==========================================
+   FOOTER
+   ========================================== */
+footer {
+    grid-area: footer;
+    background-color: var(--bg-card);
+    border-top: 1px solid var(--border-color);
+    padding: 20px;
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+
+
+
+
+/*//////////////////////////////////////////////////////////////////////////*/
+
+/* ==========================================
+   ESTILOS DE CATEGORÍAS (LISTA LATERAL)
+   ========================================== */
+.list_element {
+    list-style: none;
+    margin-bottom: 8px;
+}
+
+/* El elemento <a> dentro del <li> de categoría */
+.list_element a {
+    display: block;
+    padding: 12px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted); /* #718096 */
+    text-decoration: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+/* Efecto hover al pasar el cursor */
+.list_element a:hover {
+    background-color: var(--primary-light); /* Fondo naranja claro */
+    color: var(--primary);                 /* Texto naranja principal */
+}
+
+
+/* ==========================================
+   TARJETAS DE PRODUCTO (ARTICLE GENERADO POR TS)
+   ========================================== */
+.products_article {
+    background-color: #ffffff;
+    border-radius: 14px;
+    border: 1px solid var(--border-color); /* Gris suave */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 16px 0; /* Sin padding arriba para que la imagen toque los bordes */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.products_article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+}
+
+/* Imagen del producto */
+.product_image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover; /* Ajusta la imagen sin deformarla */
+    border-bottom: 1px solid var(--border-color);
+}
+
+/* Título del producto */
+.product_title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--text-dark); /* #2d3748 */
+    padding: 16px 16px 4px 16px;
+}
+
+/* Descripción */
+.product_description {
+    font-size: 13px;
+    color: var(--text-muted); /* #718096 */
+    padding: 0 16px 12px 16px;
+    line-height: 1.4;
+    flex-grow: 1; /* Empuja el precio y el botón hacia abajo si las descripciones varían de tamaño */
+}
+
+/* Contenedor o formato del Precio */
+.product_precio {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary); /* #f15a24 (Naranja de la marca) */
+    padding: 0 16px 12px 16px;
+}
+
+/* Botón "Agregar" */
+.product_button {
+    background-color: #10b981; /* Color verde 'Disponible/Agregar' */
+    color: #ffffff;
+    border: none;
+    border-radius: 20px; /* Bordes redondeados píldora */
+    padding: 8px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    align-self: flex-start; /* Se alinea a la izquierda dentro de la tarjeta */
+    margin: 0 16px;
+    transition: background-color 0.2s ease;
+}
+
+.product_button:hover {
+    background-color: #059669; /* Verde un poco más oscuro en hover */
+}

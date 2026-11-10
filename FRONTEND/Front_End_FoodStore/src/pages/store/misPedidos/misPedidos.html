@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Store - Mis Pedidos</title>
+    <link rel="stylesheet" href="misPedidos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navbar superior -->
+    <!-- Barra de Navegación Superior de la Tienda -->
+    <header class="store-header">
+        <div class="header-logo">
+            <i class="fas fa-pizza-slice"></i> Food Store
+        </div>
+        <nav class="header-menu">
+            <a href="#" class="menu-item" id="inicio_link">Inicio</a>
+            <a href="#" class="menu-item active" id="misPedidos">Mis Pedidos</a>
+            <a href="#" class="menu-item" id="Administración">Administración</a>
+            <a href="#" class="menu-item" id="carrito">Carrito</a>
+            <span class="user-name">Juan Pérez</span>
+            <button class="btn-logout" id="logout">Cerrar Sesión</button>
+        </nav>
+    </header>
+    <!-- Contenido Principal -->
+    <main class="main-container">
+        <div class="orders-header">
+            <h2>Mis Pedidos</h2>
+            <select id="filterStatus" class="select-filter">
+                <option value="todos">Todos</option>
+                <option value="PENDIENTE">Pendientes</option>
+                <option value="EN_PREPARACION">En Preparación</option>
+                <option value="ENTREGADO">Entregados</option>
+                <option value="CANCELADO">Cancelados</option>
+            </select>
+        </div>
+
+        <!-- Contenedor donde se dibujan las tarjetas -->
+        <section id="ordersList" class="orders-list">
+            <!-- Se llena dinámicamente con TS -->
+        </section>
+    </main>
+
+    <!-- Modal de Detalle de Pedido -->
+    <div id="orderModal" class="modal-backdrop">
+        <div class="modal-container">
+            <button id="btnCloseModal" class="btn-close-modal">&times;</button>
+            
+            <div class="modal-header-status">
+                <span id="modalStatusBadge" class="badge-status pendiente">PENDIENTE</span>
+                <p id="modalDate" class="modal-date">📅 18 de octubre de 2026, 11:10 a. m.</p>
+            </div>
+
+            <div class="modal-section">
+                <h3>📍 Información de Entrega</h3>
+                <p><strong>Dirección:</strong> <span id="detailAddress">-</span></p>
+                <p><strong>Teléfono:</strong> <span id="detailPhone">-</span></p>
+                <p><strong>Método de pago:</strong> 💵 <span id="detailPayment">-</span></p>
+            </div>
+
+            <div class="modal-section">
+                <h3>🛍️ Productos</h3>
+                <div id="detailProductsList" class="detail-products-list">
+                    <!-- Se renderizan los ítems aquí -->
+                </div>
+            </div>
+
+            <div class="modal-summary">
+                <div class="summary-row">
+                    <span>Subtotal:</span>
+                    <span id="detailSubtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Envío:</span>
+                    <span id="detailEnvio">$0.00</span>
+                </div>
+                <hr>
+                <div class="summary-row total-row">
+                    <span>Total:</span>
+                    <span id="detailTotal" class="total-price">$0.00</span>
+                </div>
+            </div>
+
+            <div class="modal-alert-box">
+                <p>⏳ <strong>Tu pedido está siendo procesado</strong></p>
+                <small>Te notificaremos cuando esté listo para entrega.</small>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="misPedidos.ts"></script>
+</body>
+</html>

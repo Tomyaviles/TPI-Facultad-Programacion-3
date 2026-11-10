@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+
+<body>
+
+    <header>
+    
+    </header>
+   
+
+    <main class="container">
+        <form id="form" class="form">
+
+        <div class="form_div">
+            <label for="email" class="form_label">Email</label>
+            <input type="email" id="email" class="form_input" name="email" autocomplete="off" placeholder="example@example.com">
+        </div>
+        <div>
+            <label for="password" class="form_label">Password</label><br>
+            <input type="password" id="password" class="form_input" name="password" autocomplete="off" placeholder="********">
+        </div>
+        <div class="form_div">
+            <label for="rol" class="form_label">Rol</label>
+            <select name="rol" id="rol">
+                <option value="">Seleccione un rol</option>
+                <option value="client">Cliente</option>
+                <option value="admin">Admin</option>
+            </select>
+        </div>
+
+        <button type="submit" class="form_button">Ingresar</button>
+
+    </form>
+
+
+    <button class="register_button" id="btn_back_register">No tienes una cuenta? Registrate</button>
+
+    </main>
+
+    <footer>
+        <p>Contacto: contactofoodstore@gmail.com</p>
+    </footer>
+    
+
+    <script type="module" src="./login.ts"></script>
+</body>
+
+</html>

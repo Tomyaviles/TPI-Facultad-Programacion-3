@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Store</title>
+    <link rel="stylesheet" href="home.css">
+</head>
+<body>
+    <header class="header">
+        <h1 class="header_title">Food Store</h1>
+        <nav class="header_nav">
+            <a href="#" class="header_link">Inicio</a>
+            <a href="#" class="header_link" id="carrito_link">Carrito</a>
+            <a href="#" class="header_link" id="logout">Logout</a>
+            <a href="#" class="header_link header_link__admin">Panel de Admin</a>
+        </nav>
+    </header>
+
+    <aside class="sidebar">
+        <h2 class="sidebar_title">Categoria</h2>
+
+        <ul id="lista-categorias" class="sidebar_list"></ul>
+    </aside>
+
+
+    <main class="container"> 
+        <form class="container_form" id="form_buscar">
+            <input type="text" placeholder="Buscar productos..." class="container_input" id="buscar_input">
+            <button type="submit" class="container_button" id="buscar_button">Buscar</button>
+            <h2 class="container_subtitle">Productos destacados</h2>
+            <section id="contenedor-productos" class="products"></section>
+        </form>
+    </main>
+
+    <footer>
+        <p>© 2024 Food Store. Todos los derechos reservados.</p>
+        <p>Contacto: info@foodstore.com</p>
+    </footer>
+
+    <script type="module" src="home.ts"></script>
+</body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Pedidos - Food Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="pedido.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-pizza-slice"></i> Food Store
+        </div>
+
+        <div class="section-label">Administración</div>
+        <div class="panel-label">Panel de control</div>
+
+        <a href="#" class="nav-link" id="dashboard_link">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="#" class="nav-link" id="categoria_link">
+            <i class="fas fa-folder"></i> Categorías
+        </a>
+        <a href="#" class="nav-link" id="producto_link">
+            <i class="fas fa-box"></i> Productos
+        </a>
+        <a href="#" class="nav-link active" id="pedido_link">
+            <i class="fas fa-shopping-cart"></i> Pedidos
+        </a>
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="header-brand">
+                <i class="fas fa-pizza-slice"></i> Food Store
+            </div>
+            <div class="header-nav">
+              
+                <span class="header-item">Panel Admin</span>
+                <span class="header-item">Juan Pérez</span>
+                <button class="btn-cerrar" id="logout">Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <div class="crud-container">
+            <div class="crud-header">
+                <h2>Gestión de Pedidos</h2>
+                <div class="filter-container">
+                    <select id="filterStatus" class="select-filter">
+                        <option value="todos">Todos los pedidos</option>
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Entregado">Entregado</option>
+                        <option value="Cancelado">Cancelado</option>
+                    </select>
+                </div>
+            </div>
+
+            <div id="ordersList" class="orders-list">
+                </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="orderModal">
+        <div class="modal-content modal-detail-content">
+            <div class="modal-header">
+                <h3 id="modalOrderTitle">Detalle del Pedido #ORD-...</h3>
+                <button class="btn-close-modal" id="btnCloseModal">&times;</button>
+            </div>
+            
+            <div class="modal-body">
+                <div class="customer-info-card">
+                    <p><strong>Cliente:</strong> <span id="detailCliente"></span></p>
+                    <p><strong>Fecha:</strong> <span id="detailFecha"></span></p>
+                    <p><strong>Teléfono:</strong> <span id="detailTelefono"></span></p>
+                    <p><strong>Dirección:</strong> <span id="detailDireccion"></span></p>
+                    <p><strong>Método de pago:</strong> <span id="detailPago"></span></p>
+                </div>
+
+                <h4>Productos:</h4>
+                <div id="detailProductsList" class="detail-products-list">
+                    </div>
+
+                <div class="price-breakdown">
+                    <div class="breakdown-row">
+                        <span>Subtotal:</span>
+                        <span id="detailSubtotal" class="price-value"></span>
+                    </div>
+                    <div class="breakdown-row line-below">
+                        <span>Envío:</span>
+                        <span id="detailEnvio" class="price-value"></span>
+                    </div>
+                    <div class="breakdown-row total-row">
+                        <span>Total:</span>
+                        <span id="detailTotal" class="price-total"></span>
+                    </div>
+                </div>
+
+                <div class="status-update-container">
+                    <label for="updateStatusSelect">Cambiar Estado:</label>
+                    <select id="updateStatusSelect" class="select-status-inline">
+                        <option value="Pendiente">Pendiente</option>
+                        <option value="Entregado">Entregado</option>
+                        <option value="Cancelado">Cancelado</option>
+                    </select>
+                    <button class="btn-actualizar-estado" id="btnUpdateStatus">Actualizar Estado</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="pedido.ts"></script>
+</body>
+</html>

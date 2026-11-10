@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Categorías - Food Store</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="producto.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="sidebar-brand">
+            <i class="fas fa-pizza-slice"></i> Food Store
+        </div>
+
+        <div class="section-label">Administración</div>
+        <div class="panel-label">Panel de control</div>
+
+        <a href="#" class="nav-link" id="dashboard_link">
+            <i class="fas fa-tachometer-alt"></i> Dashboard
+        </a>
+        <a href="#" class="nav-link" id="categoria_link">
+            <i class="fas fa-folder"></i> Categorías
+        </a>
+        <a href="#" class="nav-link active" id="producto_link">
+            <i class="fas fa-box"></i> Productos
+        </a>
+        <a href="#" class="nav-link" id="pedido_link">
+            <i class="fas fa-shopping-cart"></i> Pedidos
+        </a>
+
+    </div>
+
+    <div class="main-content">
+        <div class="header">
+            <div class="header-brand">
+                <i class="fas fa-pizza-slice"></i> Food Store
+            </div>
+            <div class="header-nav">
+                
+                <span class="header-item">Panel Admin</span>
+                <span class="header-item">Juan Pérez</span>
+                <button class="btn-cerrar" id="logout">Cerrar Sesión</button>
+            </div>
+        </div>
+
+        <div class="crud-container">
+            <div class="crud-header">
+                <h2>Gestión de Productos</h2>
+                <button class="btn-nueva-categoria" id="btnNuevaCategoria">
+                    <i class="fas fa-plus"></i> Nuevo Producto
+                </button>
+            </div>
+
+            <div class="table-responsive">
+                <table class="categories-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Imagen</th>
+                            <th>Nombre</th>
+                            <th>Descripción</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productosTableBody">
+                        </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="categoryModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 id="modalTitle">Nueva Categoría</h3>
+                <button class="btn-close-modal" id="btnCloseModal">&times;</button>
+            </div>
+            <form id="categoryForm">
+                <input type="hidden" id="categoryId">
+                
+                <div class="form-group">
+                    <label for="categoryName">Nombre</label>
+                    <input type="text" id="productName" placeholder="Escribe el nombre de la categoría" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="categoryDescription">Descripción</label>
+                    <textarea id="categoryDescription" rows="4" placeholder="Escribe la descripción" required></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label for="productPrecio">Precio</label>
+                    <input type="number" id="productPrecio" placeholder="$$$$">
+                </div>
+                
+                <div class="form-group">
+                    <label for="categoryImageUrl">URL de Imagen</label>
+                    <input type="url" id="categoryImageUrl" placeholder="https://ejemplo.com/imagen.jpg" required>
+                </div>
+                
+                <button type="submit" class="btn-save" id="btnSaveCategory">Guardar</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="producto.ts"></script>
+</body>
+</html>
